@@ -1,0 +1,50 @@
+<script src="/js/veiculos/filtrar.js"></script>
+
+<div class="container">
+  <div style="margin-bottom: 15px;">
+    <a class="btn btn-primary" href="/servicos/registrar" style="margin-right: 100px;">Registrar Servico Prestado</a>
+    <button id="btnExportarExcel" class="btn btn-success" >Exportar para Excel</button>
+    <button id="btnExportarPdf"  onclick="window.print()" class="btn btn-danger">Exportar para PDF</button>
+  </div>
+    <h2>Atendimentos/Servicos Realizados:</h2>
+    <div style="margin-bottom: 15px;" id="divFiltros">
+      <label for="filtro">Filtro:</label>
+      <div class="input-group">
+          <input id="filtro" type="text" placeholder="Digite um valor a ser filtrado..." class="form-control" aria-label="Text input with dropdown button">
+          <div class="input-group-append">
+            <button id="btnEscolherFiltro" class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">Filtros</button>
+         <div class="dropdown-menu">
+              <a class="dropdown-item itemFiltro" data-valor="1" data-nome="Modelo do carro">Modelo do carro</a>
+              <a class="dropdown-item itemFiltro" data-valor="2" data-nome="Servico Prestado">Servico Prestado</a>
+          </div>
+            <button id="btnFiltrar" class="btn btn-outline-secondary" type="button"><i class="fas fa-search"></i> Buscar</button>
+          </div>
+       </div>
+  </div>
+    <div class="row justify-center">
+      <div class="col col-12">
+        <div class="table-responsive">
+          <table id="tabelaServicos" class="table table-hover">
+            <thead>
+              <tr>
+                  <th scope="col" class="text-start">Identificação</th>
+                  <th scope="col" class="text-start">Modelo</th>
+                  <th scope="col" class="text-start">Serviço Prestado</th>
+                  <th scope="col" class="text-start">Valor Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for (let i = 0; i < lista.length; i++)  { %>
+                  <tr>
+                      <td><%= lista[i].sepr_id %></td>
+                      <td><%= lista[i].veiModelo %></td>
+                      <td><%= lista[i].servDesc %></td>
+                      <td>R$ <%= lista[i].servValor %></td>
+                  </tr>
+              <% } %>        
+          </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

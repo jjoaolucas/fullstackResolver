@@ -1,0 +1,30 @@
+<script src="/js/servicos/cadastrar.js"></script>
+
+<h1>Catálogo de serviços</h1>
+<a class="btn btn-primary" style="max-width: 120px;" href="/servicos/cadastrar">+ Serviços</a>
+<div>
+
+    <div style="margin-top:20px;">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabela">
+                    <% lista.forEach(function(value, index) { %>
+                            <tr>
+                                <td><%= value.servId %></td>
+                                <td><%= value.servDesc %></td>
+                                <td>R$<%= value.servValor %></td>
+                            </tr>   
+                        <% }) %>        
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="form-group">
+    <form id="servico-form">
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="veiculo">Veiculo</label>
+                <select class="form-control" id="veiculo">
+                    <option value="0">--Selecione--</option>
+                    <% for(let i = 0; i < listaVeiculo.length; i++)  { %>
+                        <option value="<%= listaVeiculo[i].veiId %>"><%= listaVeiculo[i].veiModelo %>(<%= listaVeiculo[i].veiAno %>)</option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="form-group col-md-12">
+                <label for="servico">Serviço</label>
+                <select class="form-control" id="servico">
+                    <option value="0">--Selecione--</option>
+                    <% for(let i = 0; i < listaServico.length; i++)  { %>
+                        <option value="<%= listaServico[i].servId %>"><%= listaServico[i].servDesc %> - R$ <%= listaServico[i].servValor %></option>
+                    <% } %>
+                </select>
+            </div>
+            <div class="mt-4">
+                <a class="btn btn-secondary" href="/veiculos/informacao">Voltar</a>
+                <button class="btn btn-primary" type="button" id="btnRegistrarServico">Registrar</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/js/servicos/registrar.js"></script>

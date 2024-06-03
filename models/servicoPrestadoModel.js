@@ -73,15 +73,15 @@ class ServicoPrestadoModel {
         if(termo != "") {
             if(filtro == "1") {
                 termo = "%"+ termo +"%"
-                sqlFiltro = ` where vei_modelo = ?`
+                sqlFiltro = ` where v.vei_modelo like ?`
             }
             else if(filtro == "2") {
                 termo = "%"+ termo +"%"
-                sqlFiltro = ` where serv_descricao = ?`
+                sqlFiltro = ` where s.serv_descricao like ?`
             }
         }
 
-        let sql = `SELECT v.vei_modelo, s.serv_descricao FROM tb_servicosprestados sp INNER JOIN tb_veiculos v ON sp.vei_id = v.vei_id INNER JOIN tb_servicos s ON sp.serv_id = s.serv_id ${sqlFiltro} `;
+        let sql = `SELECT v.vei_modelo, s.serv_descricao, sp.sepr_id, s.serv_valor  FROM tb_servicosprestados sp INNER JOIN tb_veiculos v ON sp.vei_id = v.vei_id INNER JOIN tb_servicos s ON sp.serv_id = s.serv_id ${sqlFiltro} `;
         
         let valores = [];
 
